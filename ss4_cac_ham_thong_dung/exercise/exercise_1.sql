@@ -25,6 +25,6 @@ FROM
         JOIN
     mark m ON s.id = m.student_id
 GROUP BY student_id
-ORDER BY AVG(mark) DESC;
+ORDER BY diem_trung_binh DESC;
 
 

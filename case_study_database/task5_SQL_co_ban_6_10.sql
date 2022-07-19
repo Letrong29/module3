@@ -30,5 +30,26 @@ WHERE
                 AND (MONTH(ct.start_date) IN (1 , 2, 3)))
 GROUP BY f.id;
 
+-- 7. Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da, chi_phi_thue, ten_loai_dich_vu của tất cả các loại
+-- dịch vụ đã từng được khách hàng đặt phòng trong năm 2020 nhưng chưa từng được khách hàng đặt phòng trong năm 2021.
+SELECT 
+    f.id,
+    f.`name` AS facility,
+    f.area,
+    f.max_people,
+    f.cost,
+    ft.`name` AS facility_type
+FROM
+    contract ct
+        JOIN
+    facility f ON ct.facility_id = f.id
+        JOIN
+    facility_type ft ON f.facility_type_id = ft.id
+WHERE (YEAR(ct.start_date) <> 2021); 
+    
+
+    
+
+
 
     
