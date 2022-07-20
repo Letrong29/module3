@@ -51,6 +51,7 @@ ORDER BY COUNT(customer_id);
 -- (Với tổng tiền được tính theo công thức như sau: Chi Phí Thuê + Số Lượng * Giá, với Số Lượng và Giá là từ bảng dich_vu_di_kem, hop_dong_chi_tiet) 
 -- cho tất cả các khách hàng đã từng đặt phòng. 
 -- (những khách hàng nào chưa từng đặt phòng cũng phải hiển thị ra).
+-- CHƯA ĐÚNG KẾT QUẢ --
 SELECT 
     c.id,
     c.`name` AS name_of_customer,
@@ -59,10 +60,7 @@ SELECT
     f.`name` AS facility_name,
     ct.start_date,
     ct.end_date,
-    CASE
-        WHEN ct_d.amount IS NULL THEN SUM(f.cost)
-        ELSE SUM(f.cost + ct_d.amount * af.cost)
-    END AS bill
+    f.cost + SUM(COALESCE(ct_d.amount * af.cost, 0)) AS bill
 FROM
     customer c
         LEFT JOIN
@@ -75,8 +73,5 @@ FROM
     contract_detail ct_d ON ct.id = ct_d.contract_id
         LEFT JOIN
     attach_facility af ON ct_d.attach_facility_id = af.id
-GROUP BY CASE
-    WHEN ct.id IS NULL THEN c.`name`
-    ELSE ct.id
-END
+GROUP BY ct.id , c.id
 ORDER BY c.id;
