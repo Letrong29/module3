@@ -60,7 +60,7 @@ SELECT
     f.`name` AS facility_name,
     ct.start_date,
     ct.end_date,
-    f.cost + SUM(COALESCE(ct_d.amount * af.cost, 0)) AS bill
+    f.cost + SUM(IFNULL(ct_d.amount * af.cost, 0)) AS bill
 FROM
     customer c
         LEFT JOIN

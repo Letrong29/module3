@@ -1,0 +1,51 @@
+.display {
+    display: flex;
+    border: solid white;
+    background-color: darkgrey;
+}
+.h2 {
+    padding: 5px;
+    margin: 1px 5px;
+    color: lightgoldenrodyellow;
+}
+.search {
+    margin: 10px;
+}
+
+.poster {
+    margin: 5px 25px;
+    text-align: center;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.content {
+    border: 2px solid black;
+}
+
+.link {
+    color: white;
+    padding: 10px;
+    background-color: forestgreen;
+    text-decoration: none;
+}
+
+.input {
+    height: 30px;
+    width: 400px;
+}
+
+.category {
+    margin: auto;
+}
+
+.list_name {
+    font-size: 100%;
+}
+
+body {
+    background-color: darkslategrey;
+}
+
+
+
