@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*CSS header*/
+.head {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+}
+
+.head .left-head {
+    display: flex;
+}
+
+.left-head i {
+    color: dodgerblue;
+    font-size: 40px;
+    margin: 10px 10px;
+}
+
+.left-head input {
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+    margin: 10px 0;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+.contain_head div {
+    margin-left: 225px;
+}
+
+.contain_head i {
+    color: grey;
+    font-size: 30px;
+    margin: 20px 20px;
+}
+
+.contain_head a:hover {
+    background-color: whitesmoke;
+    padding: 20px;
+}
+
+.right_head div{
+    display: flex;
+    margin-left: 150px;
+}
+
+.right_head i {
+    background-color: lightgrey;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+    margin: 10px 10px;
+}
+
+.head img {
+    width: 40px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+
+
+.left {
+    background-color: whitesmoke;
+    height: 500px;
+}
+
+.left img {
+    width: 40px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.left div:hover {
+    background-color: lightgrey;
+    margin: 5px;
+}
+
+.left b {
+    margin: 5px;
+}
+
+.left i {
+    background-color: whitesmoke;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+    color: deepskyblue;
+    margin: 10px 10px;
+}
+
+
+.right {
+    background-color: whitesmoke;
+    height: 500px;
+}
+
+.contain {
+    background-color: whitesmoke;
+    height: 500px;
+}
+
+.story {
+    width: 130px;
+    height: 200px;
+    border-radius: 20px;
+    padding: 10px 5px;
+}
+
+.status {
+    background-color: white;
+    border-radius: 20px;
+}
+
+.status img {
+    width: 40px;
+    border-radius: 50%;
+    margin: 6px 20px;
+}
+
+.status input {
+    height: 40px;
+    width: 650px;
+    border-radius: 20px;
+    margin: 6px 0;
+    padding-left: 20px;
+    font-size: 20px;
+    background-color: whitesmoke;
+}
+
+.status i {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.status a {
+    display: flex;
+    text-decoration: none;
+    text-align: center;
+
+}
+
+.status b {
+    padding: 15px 0;
+    color: grey;
+    margin-left: 5px;
+}
+
+.status_menu  {
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    margin: 5px 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-m-1 {width: 8.33%;}
+.col-m-2 {width: 16.66%;}
+.col-m-3 {width: 25%;}
+.col-m-4 {width: 33.33%;}
+.col-m-5 {width: 41.66%;}
+.col-m-6 {width: 50%;}
+.col-m-7 {width: 58.33%;}
+.col-m-8 {width: 66.66%;}
+.col-m-9 {width: 75%;}
+.col-m-10 {width: 83.33%;}
+.col-m-11 {width: 91.66%;}
+.col-m-12 {width: 100%;}
+
+
