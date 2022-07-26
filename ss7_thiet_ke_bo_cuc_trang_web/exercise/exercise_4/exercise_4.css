@@ -1,9 +1,18 @@
 
+/*header*/
 .header {
     background-color: cornflowerblue;
     width: 100%;
-    height: 100px;
+    height: 200px;
+    align-items: center;
+
 }
+
+.header img {
+    width: 400px;
+    height: 150px;
+}
+
 
 .contain_left {
     background-color: yellow;
