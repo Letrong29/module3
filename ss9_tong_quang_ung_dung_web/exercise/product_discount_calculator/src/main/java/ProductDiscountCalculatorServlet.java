@@ -7,6 +7,12 @@ import java.io.IOException;
 public class ProductDiscountCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         double listPrice = Double.parseDouble(request.getParameter("listPrice"));
         double discountPercent = Double.parseDouble(request.getParameter("discountPercent"));
 
@@ -18,11 +24,5 @@ public class ProductDiscountCalculatorServlet extends HttpServlet {
         request.setAttribute("DiscountAmount", discountAmount);
         request.setAttribute("DiscountPrice", discountPrice);
         requestDispatcher.forward(request,response);
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

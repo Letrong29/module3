@@ -9,11 +9,11 @@
 <html>
   <head>
     <title>$Title$</title>
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist\css\bootstrap.css">
   </head>
   <body>
 
-  <form action="/ProductServlet" method="get">
-
+  <form action="/ProductServlet" method="post">
     <h2>Product Description:</h2>
     <input name="productDescription" type="text">
     <h2>List Price:</h2>
@@ -25,5 +25,6 @@
 
   </form>
 
+  <script src="bootstrap-5.0.2-dist\js\bootstrap.js"></script>
   </body>
 </html>
