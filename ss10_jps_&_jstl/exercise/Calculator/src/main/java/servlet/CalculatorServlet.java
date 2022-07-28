@@ -22,7 +22,7 @@ public class CalculatorServlet extends HttpServlet {
         double secondOperand = Double.parseDouble(request.getParameter("secondOperand"));
         String operator = request.getParameter("operator");
 
-        double result = calculator.calculate(firstOperand,secondOperand,operator);
+        String result = calculator.calculate(firstOperand,secondOperand,operator);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/result.jsp");
         request.setAttribute("firstOperand",firstOperand);

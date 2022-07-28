@@ -28,28 +28,36 @@ public class Calculator {
         this.secondOperand = secondOperand;
     }
 
-    public double getAddition(double firstOperand, double secondOperand){
-        double addition = firstOperand + secondOperand;
-        return addition;
+    public String getAddition(double firstOperand, double secondOperand){
+        double result = firstOperand + secondOperand;
+        return ""+result;
     }
 
-    public double getSubtraction(double firstOperand, double secondOperand){
-        double subtraction = firstOperand - secondOperand;
-        return subtraction;
+    public String getSubtraction(double firstOperand, double secondOperand){
+        double result = firstOperand - secondOperand;
+        return ""+result;
     }
 
-    public double getMultiplication(double firstOperand, double secondOperand){
-        double multiplication = firstOperand * secondOperand;
-        return multiplication;
+    public String getMultiplication(double firstOperand, double secondOperand){
+        double result = firstOperand * secondOperand;
+        return ""+result;
     }
 
-    public double getDivision(double firstOperand, double secondOperand){
-        double division = firstOperand / secondOperand;
-        return division;
+    public String getDivision(double firstOperand, double secondOperand){
+        if (secondOperand != 0){
+            double result = firstOperand / secondOperand;
+            return result+"";
+        }else {
+            try {
+                throw new ArithmeticException("The divisor is not equal to 0");
+            }catch (ArithmeticException e){
+                return e.getMessage();
+            }
+        }
     }
 
-    public double calculate(double firstOperand, double secondOperand, String operator) {
-        double result = 0;
+    public String calculate(double firstOperand, double secondOperand, String operator) {
+        String result = "";
         switch (operator) {
             case "+":
                 result = getAddition(firstOperand, secondOperand);
