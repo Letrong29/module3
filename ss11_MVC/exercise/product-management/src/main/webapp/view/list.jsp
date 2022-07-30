@@ -59,7 +59,7 @@
             <td>${product.producer}</td>
             <td>${product.price}$</td>
             <td>${product.status}</td>
-            <td>${product.picture}</td>
+            <td><img width="50px" src="${product.picture}" alt=""></td>
             <td>
                 <button type="button" class="btn btn-secondary">
                     <a href="Products?action=update&id=${product.id}" class="text-decoration-none text-white">Edit</a>

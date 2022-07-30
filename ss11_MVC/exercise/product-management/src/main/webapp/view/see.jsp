@@ -43,7 +43,7 @@
         </tr>
         <tr>
             <th>Picture:</th>
-            <td>${product.picture}</td>
+            <td><img width="50px" src="${product.picture}" alt=""></td>
         </tr>
         </tbody>
     </table>
