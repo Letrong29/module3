@@ -1,4 +1,4 @@
-package model;
+package service;
 
 public class Calculator {
     double firstOperand;
@@ -16,8 +16,8 @@ public class Calculator {
         return firstOperand;
     }
 
-    public void setFirst_Operand(double first_Operand) {
-        this.firstOperand = first_Operand;
+    public void setFirstOperand(double firstOperand) {
+        this.firstOperand = firstOperand;
     }
 
     public double getSecondOperand() {
@@ -48,11 +48,7 @@ public class Calculator {
             double result = firstOperand / secondOperand;
             return result+"";
         }else {
-            try {
-                throw new ArithmeticException("The divisor is not equal to 0");
-            }catch (ArithmeticException e){
-                return e.getMessage();
-            }
+            return "The divisor is not equal to 0";
         }
     }
 
