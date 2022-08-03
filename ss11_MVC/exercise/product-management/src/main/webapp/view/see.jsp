@@ -47,8 +47,8 @@
         </tr>
         </tbody>
     </table>
-    <button type="submit" class="btn btn-primary" value="Back">
-        <a class="text-decoration-none text-white" href="/Products">Back to product list</a>
+    <button onclick="location.href='/Products'" type="button" class="btn btn-primary" value="Back">
+        Back to product list
     </button>
 </div>
 <script src="common/bootstrap-5.0.2-dist/js/bootstrap.js"></script>

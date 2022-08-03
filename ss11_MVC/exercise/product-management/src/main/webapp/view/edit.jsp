@@ -38,8 +38,8 @@
             <input type="text" name="picture" id="picture"  value="${product.picture}" class="form-control"  aria-describedby="emailHelp">
         </div>
         <button type="submit" class="btn btn-primary" value="Create">Submit</button>
-        <button type="submit" class="btn btn-primary" value="Create">
-            <a class="text-decoration-none text-white" href="/Products">Back to product list</a>
+        <button onclick="location.href='/Products'" type="button" class="btn btn-primary" value="back">
+            Back to product list
         </button>
     </form>
 

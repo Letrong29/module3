@@ -13,20 +13,15 @@
     <link rel="stylesheet" href="common/bootstrap-5.0.2-dist/css/bootstrap.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <h1>Product List</h1>
-        <h5 class="justify-content-end">
-            <c:if test='${requestScope["message"] != null}'>
-                <span class="message">${requestScope["message"]}</span>
-            </c:if>
-        </h5>
-        <form method="get" class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary" type="submit">Search</button>
-        </form>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <h1>Product List</h1>
+            <form action="/Products?action=findByName" method="post"  class="d-flex">
+                <input type="text" name="name" id="name" class="form-control me-2" placeholder="Search" aria-label="Search">
+                <button class="btn btn-secondary" type="submit">Search</button>
+            </form>
         </div>
-    </div>
 </nav>
 <table class="table table-hover mt-5 text-center">
     <thead>
@@ -48,12 +43,10 @@
             <th scope="row">${product.id}</th>
             <td>${product.name}</td>
             <td>
-                <button type="button" class="btn btn-secondary">
-                    <a href="Products?action=seeDetails&id=${product.id}" class="text-decoration-none text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
-                    </a>
+                <button onclick="location.href='/Products?action=seeDetails&id=${product.id}'" type="button" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
                 </button>
             </td>
             <td>${product.producer}</td>
@@ -61,26 +54,47 @@
             <td>${product.status}</td>
             <td><img width="50px" src="${product.picture}" alt=""></td>
             <td>
-                <button type="button" class="btn btn-secondary">
-                    <a href="Products?action=update&id=${product.id}" class="text-decoration-none text-white">Edit</a>
+                <button onclick="location.href='Products?action=update&id=${product.id}'" type="button" class="btn btn-secondary">
+                    Edit
                 </button>
             </td>
             <td>
-                <button type="button" class="btn btn-secondary">
-                    <a href="Products?action=delete&id=${product.id}" class="text-decoration-none text-white">Delete</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete
                 </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" onclick="location.href='Products?action=delete&id=${product.id}'" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
     </c:forEach>
     <tr>
         <th colspan="9">
-            <button type="button" class="btn btn-secondary btn-lg">
-                <a class="text-decoration-none text-white" href="Products?action=create">Creat New Product</a>
+            <button onclick="location.href='Products?action=create'" type="button" class="btn btn-secondary btn-lg">
+                Creat New Product
             </button>
         </th>
     </tr>
     </tbody>
 </table>
+</div>
 <script src="common/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
 </body>
 </html>

@@ -2,16 +2,22 @@ package repository;
 
 import model.Product;
 
+import java.util.List;
+
 public interface IProductRepository {
-    void display();
 
-    void creat();
+    List<Product> display();
 
-    void update(int id);
+    void save(Product product);
+
+    Product findByID(int id);
+
+    void update(int id, Product product);
 
     void delete(int id);
 
     Product seeDetails();
 
-    Product findByName(String name);
+    List<Product> findByName(String name, List<Product> products);
+
 }

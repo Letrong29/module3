@@ -19,27 +19,27 @@
         <h5>Product information</h5>
         <div class="mb-3">
             <label for="name" class="form-label">Name: </label>
-            <input type="text" name="name" id="name" class="form-control"  aria-describedby="emailHelp">
+            <input required type="text" name="name" id="name" class="form-control"  aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="producer" class="form-label">Producer: </label>
-            <input type="text" name="producer" id="producer" class="form-control"  aria-describedby="emailHelp">
+            <input required type="text" name="producer" id="producer" class="form-control"  aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price: </label>
-            <input type="text" name="price" id="price" class="form-control"  aria-describedby="emailHelp">
+            <input required type="number" name="price" id="price" class="form-control"  aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="status" class="form-label">Status: </label>
-            <input type="text" name="status" id="status" class="form-control"  aria-describedby="emailHelp">
+            <input required type="text" name="status" id="status" class="form-control"  aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="picture" class="form-label">Picture link: </label>
-            <input type="text" name="picture" id="picture" class="form-control"  aria-describedby="emailHelp">
+            <input required type="text" name="picture" id="picture" class="form-control"  aria-describedby="emailHelp">
         </div>
         <button type="submit" class="btn btn-primary" value="Create">Submit</button>
-        <button type="submit" class="btn btn-primary" value="Create">
-            <a class="text-decoration-none text-white" href="/Products">Back to product list</a>
+        <button onclick="location.href='/Products'" type="button" class="btn btn-primary" value="back">
+            Back to product list
         </button>
     </form>
     <h2>
