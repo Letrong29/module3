@@ -16,3 +16,6 @@ CREATE TABLE `user` (
 INSERT INTO user_manager.`user` (`name`, email, country) 
 VALUE ('Minh','minh@codegym.vn','Viet Nam'),
 	  ('Kante', 'kante@che.uk','Kenia');
+	
+	
+select * from `user` order by `name`; 

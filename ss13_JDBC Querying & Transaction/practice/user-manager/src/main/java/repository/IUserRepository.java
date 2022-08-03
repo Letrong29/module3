@@ -24,4 +24,18 @@ public interface IUserRepository {
     User getUserById(int id);
 
     void insertUserStore(User user) throws SQLException;
+
+    void addUserTransaction(User user, int[] permision);
+
+    public void insertUpdateWithoutTransaction();
+
+    public void insertUpdateUseTransaction();
+
+    // BÀI TẬP:
+
+    List<User> listUserStore();
+
+    void updateUserStore(User user);
+
+    void deleteUserStore(int id);
 }

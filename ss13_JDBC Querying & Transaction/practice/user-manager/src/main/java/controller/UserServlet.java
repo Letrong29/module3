@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -34,6 +35,15 @@ public class UserServlet extends HttpServlet {
                 break;
             case "sortByName":
                 sortByName(request,response);
+            case "permision":
+                addUserPermision(request, response);
+                break;
+            case "test-without-tran":
+                testWithoutTran(request, response);
+                break;
+            case "test-use-tran":
+                testUseTran(request, response);
+                break;
             default:
                 listUser(request, response);
                 break;
@@ -58,6 +68,41 @@ public class UserServlet extends HttpServlet {
             case "searchByCountry":
                 searchByCountry(request,response);
         }
+    }
+
+    private void testUseTran(HttpServletRequest request, HttpServletResponse response) {
+        userService.insertUpdateUseTransaction();
+    }
+
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
+        userService.insertUpdateWithoutTransaction();
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/list.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
+        User user = new User("quan", "quan.nguyen@codegym.vn", "vn");
+
+        int[] permision = {1, 2, 4};
+
+        userService.addUserTransaction(user, permision);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/list.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response) {
@@ -96,12 +141,14 @@ public class UserServlet extends HttpServlet {
 
         User user = new User(id,name,email,country);
         try {
-            this.userService.updateUser(user);
+//            this.userService.updateUser(user);
+
+//            BÀI TẬP:
+            this.userService.updateUserStore(user);
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/edit.jsp");
             request.setAttribute("message","edit successfully");
             requestDispatcher.forward(request,response);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -112,9 +159,10 @@ public class UserServlet extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = this.userService.selectUser(id);
+//        User existingUser = userService.selectUser(id);
+        User existingUser = userService.getUserById(id);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/edit.jsp");
-        request.setAttribute("user",user);
+        request.setAttribute("user",existingUser);
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {
@@ -128,13 +176,15 @@ public class UserServlet extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         try {
-            this.userService.deleteUser(id);
+//            this.userService.deleteUser(id);
+
+//            BÀI TẬP:
+            this.userService.deleteUserStore(id);
+
             List<User> userList = this.userService.selectAllUsers();
             request.setAttribute("userList",userList);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/list.jsp");
             requestDispatcher.forward(request,response);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -150,7 +200,9 @@ public class UserServlet extends HttpServlet {
 
         User user = new User(name, email, country);
         try {
-            userService.insertUser(user);
+//            userService.insertUser(user);
+            userService.insertUserStore(user);
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/create.jsp");
             request.setAttribute("message","Successfully added new");
             requestDispatcher.forward(request,response);
@@ -176,7 +228,11 @@ public class UserServlet extends HttpServlet {
     }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response) {
-        List<User> userList = this.userService.selectAllUsers();
+//        List<User> userList = this.userService.selectAllUsers();
+
+//        BÀI TẬP :
+        List<User> userList = this.userService.listUserStore();
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/user/list.jsp");
         request.setAttribute("userList", userList);
         try {
@@ -187,6 +243,4 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-
 }

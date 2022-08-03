@@ -54,4 +54,36 @@ public class UserService implements IUserService {
     public void insertUserStore(User user) throws SQLException {
         this.userRepository.insertUserStore(user);
     }
+
+    @Override
+    public void addUserTransaction(User user, int[] permision) {
+        this.userRepository.addUserTransaction(user,permision);
+    }
+
+    @Override
+    public void insertUpdateWithoutTransaction() {
+        this.userRepository.insertUpdateWithoutTransaction();
+    }
+
+    @Override
+    public void insertUpdateUseTransaction() {
+        this.userRepository.insertUpdateUseTransaction();
+    }
+
+    // BÀI TẬP:
+
+    @Override
+    public List<User> listUserStore() {
+        return this.userRepository.listUserStore();
+    }
+
+    @Override
+    public void updateUserStore(User user) {
+        this.userRepository.updateUserStore(user);
+    }
+
+    @Override
+    public void deleteUserStore(int id) {
+        this.userRepository.deleteUserStore(id);
+    }
 }
