@@ -1,6 +1,6 @@
 package servlet;
 
-import model.Calculator;
+import service.CalculatorService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @WebServlet(name = "CalculatorServlet", value = "/Calculator")
 public class CalculatorServlet extends HttpServlet {
-    public static Calculator calculator = new Calculator();
+    public static CalculatorService calculator = new CalculatorService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

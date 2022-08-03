@@ -20,7 +20,6 @@ public class UserRepository implements IUserRepository {
     @Override
     public boolean insertUser(User user) {
         Connection connection = BaseRepository.getConnectDB();
-
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(INSERT_INTO);
