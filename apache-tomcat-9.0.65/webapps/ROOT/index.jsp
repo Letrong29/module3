@@ -11,6 +11,7 @@
   <head>
     <title>$Title$</title>
     <link rel="stylesheet" href="common/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <%@ include file="include/backgroud.jsp" %>
   </head>
   <body>
   <%@ include file="include/header.jsp" %>

@@ -1,45 +1,62 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Contract {
-    private int contractID; // mã hợp đồng
-    private Booking bookingID; // mã booking
-    private int deposit; // số tiền đặt cọc
-    private int totalBill; // tổng bill
-    private Customer customerID; // mã khách hàng
+    private String contractID;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private double deposit;
+    private int totalBill;
 
     public Contract(){
 
     }
 
-    public Contract(int contractID, Booking bookingID, int deposit, int totalBill, Customer customerID) {
+    public Contract(String contractID, LocalDate startDate, LocalDate endDate, double deposit, int totalBill) {
         this.contractID = contractID;
-        this.bookingID = bookingID;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.deposit = deposit;
         this.totalBill = totalBill;
-        this.customerID = customerID;
     }
 
-    public int getContractID() {
+    public Contract(LocalDate startDate, LocalDate endDate, double deposit, int totalBill) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.deposit = deposit;
+        this.totalBill = totalBill;
+    }
+
+    public String getContractID() {
         return contractID;
     }
 
-    public void setContractID(int contractID) {
+    public void setContractID(String contractID) {
         this.contractID = contractID;
     }
 
-    public Booking getBookingID() {
-        return bookingID;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
-    public void setBookingID(Booking bookingID) {
-        this.bookingID = bookingID;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
-    public int getDeposit() {
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public double getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(int deposit) {
+    public void setDeposit(double deposit) {
         this.deposit = deposit;
     }
 
@@ -49,28 +66,5 @@ public class Contract {
 
     public void setTotalBill(int totalBill) {
         this.totalBill = totalBill;
-    }
-
-    public Customer getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(Customer customerID) {
-        this.customerID = customerID;
-    }
-
-    @Override
-    public String toString() {
-        return "Hợp đông{" +
-                "Mã hợp đồng: " + contractID +
-                ", Mã booking: " + bookingID.getBookingID() +
-                ", Tiền đặt cọc: " + deposit +
-                ", Tổng bill: " + totalBill +
-                ", Mã khách hàng: " + customerID.getCustomerID() +
-                '}';
-    }
-
-    public String getToCsv(){
-        return contractID + "," + bookingID.getBookingID() + "," + deposit + "," + totalBill + "," + customerID.getCustomerID();
     }
 }

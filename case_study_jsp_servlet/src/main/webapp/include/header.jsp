@@ -22,33 +22,35 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
-    <div class="container">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item navbar-brand">
-                    <a class="nav-link active text-light" aria-current="page" href="/Furama">Home</a>
-                </li>
-                <li class="nav-item navbar-brand">
-                    <a class="nav-link active text-light" aria-current="page" href="/Furama?action=customerList">Customer</a>
-                </li>
-                <li class="nav-item navbar-brand">
-                    <a class="nav-link active text-light" aria-current="page" href="/Furama?action=employeeList">Employee</a>
-                </li>
-                <li class="nav-item navbar-brand">
-                    <a class="nav-link active text-light" aria-current="page" href="/Furama?action=serviceList">Service</a>
-                </li>
-                <li class="nav-item navbar-brand">
-                    <a class="nav-link active text-light" aria-current="page" href="/Furama?action=contractList">Contract</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light" type="submit">Search</button>
-            </form>
-        </div>
+<div class="row bg-success sticky-top">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 d-flex justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item navbar-brand">
+                            <a class="nav-link active text-light" aria-current="page" href="/HomeFurama">Home</a>
+                        </li>
+                        <li class="nav-item navbar-brand">
+                            <a class="nav-link active text-light" aria-current="page" href="/CustomerFurama">Customer</a>
+                        </li>
+                        <li class="nav-item navbar-brand">
+                            <a class="nav-link active text-light" aria-current="page" href="/ServiceFurama">Employee</a>
+                        </li>
+                        <li class="nav-item navbar-brand">
+                            <a class="nav-link active text-light" aria-current="page" href="/ServiceFurama">Service</a>
+                        </li>
+                        <li class="nav-item navbar-brand">
+                            <a class="nav-link active text-light" aria-current="page" href="/Furama?action=contractList">Contract</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-</nav>
+    <div class="col-lg-3"></div>
+</div>
 
 <script src="common/popper.min.js"></script>
 <script src="common/bootstrap-5.0.2-dist/js/bootstrap.js"></script>

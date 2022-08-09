@@ -4,23 +4,29 @@ import java.time.LocalDate;
 
 public class Customer extends Person{
     private int customerID;
-    private String typeOfCustomer;
+    private String customerType;
     private String address;
 
     public Customer(){
 
     }
 
-    public Customer(int customerID, String typeOfCustomer, String address) {
+    public Customer(int customerID, String customerType, String address) {
         this.customerID = customerID;
-        this.typeOfCustomer = typeOfCustomer;
+        this.customerType = customerType;
         this.address = address;
     }
 
-    public Customer(String name, LocalDate birthday, String gender, int id, int phoneNumber, String email, int customerID, String typeOfCustomer, String address) {
+    public Customer(String name, LocalDate birthday, boolean gender, String id, String phoneNumber, String email, int customerID, String customerType, String address) {
         super(name, birthday, gender, id, phoneNumber, email);
         this.customerID = customerID;
-        this.typeOfCustomer = typeOfCustomer;
+        this.customerType = customerType;
+        this.address = address;
+    }
+
+    public Customer(String name, LocalDate birthday, boolean gender, String id, String phoneNumber, String email, String customerType, String address) {
+        super(name, birthday, gender, id, phoneNumber, email);
+        this.customerType = customerType;
         this.address = address;
     }
 
@@ -32,12 +38,12 @@ public class Customer extends Person{
         this.customerID = customerID;
     }
 
-    public String getTypeOfCustomer() {
-        return typeOfCustomer;
+    public String getCustomerType() {
+        return customerType;
     }
 
-    public void setTypeOfCustomer(String typeOfCustomer) {
-        this.typeOfCustomer = typeOfCustomer;
+    public void setCustomerType(String customerType) {
+        this.customerType = customerType;
     }
 
     public String getAddress() {
@@ -48,18 +54,25 @@ public class Customer extends Person{
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "Khách hàng{" +
-                super.toString() +
-                ", Mã khách hàng: " + "Customer" + customerID +
-                ", Loại khách hàng: " + typeOfCustomer +
-                ", địa chỉ: " + address +
-                '}';
-    }
-
-    @Override
-    public String getToCsv() {
-        return super.getToCsv() + "," + customerID + "," + typeOfCustomer + "," + address;
+    public String getCustomerTypeId(String customerType){
+        String value = "0";
+        switch (customerType){
+            case "Diamond":
+                value = "1";
+                break;
+            case "Platinium":
+                value = "2";
+                break;
+            case "Gold":
+                value = "3";
+                break;
+            case "Silver":
+                value = "4";
+                break;
+            case "Member":
+                value = "5";
+                break;
+        }
+        return value;
     }
 }

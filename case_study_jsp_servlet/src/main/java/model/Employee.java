@@ -3,23 +3,23 @@ package model;
 import java.time.LocalDate;
 
 public class Employee extends Person{
-    private int employeeID; // Mã nhân viên
-    private String academyLevel; // Trình độ học vấn
-    private String position; // Chức vụ
-    private int salary; // lương
+    private String employeeID;
+    private String academyLevel;
+    private String position;
+    private String salary;
 
     public Employee(){
 
     }
 
-    public Employee(int employeeID, String academyLevel, String position, int salary) {
+    public Employee(String employeeID, String academyLevel, String position, String salary) {
         this.employeeID = employeeID;
         this.academyLevel = academyLevel;
         this.position = position;
         this.salary = salary;
     }
 
-    public Employee(String name, LocalDate birthday, String gender, int id, int phoneNumber, String email, int employeeID, String academyLevel, String position, int salary) {
+    public Employee(String name, LocalDate birthday, boolean gender, String id, String phoneNumber, String email, String employeeID, String academyLevel, String position, String salary) {
         super(name, birthday, gender, id, phoneNumber, email);
         this.employeeID = employeeID;
         this.academyLevel = academyLevel;
@@ -27,11 +27,11 @@ public class Employee extends Person{
         this.salary = salary;
     }
 
-    public int getEmployeeID() {
+    public String getEmployeeID() {
         return employeeID;
     }
 
-    public void setEmployeeID(int employeeID) {
+    public void setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
     }
 
@@ -51,27 +51,11 @@ public class Employee extends Person{
         this.position = position;
     }
 
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "Nhân viên{" +
-                super.toString() +
-                ", Mã nhân viên: " + "Employee" + employeeID +
-                ", Trình độ học vấn: " + academyLevel +
-                ", Chức vụ: " + position +
-                ", Lương: " + salary +
-                '}';
-    }
-
-    @Override
-    public String getToCsv() {
-        return super.getToCsv() + "," + employeeID + "," + academyLevel + "," + position + "," + salary;
     }
 }
